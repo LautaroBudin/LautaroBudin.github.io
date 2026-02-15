@@ -1,0 +1,42 @@
+{
+  "header": {
+    "role": "Estudiante de Análisis en Computación | Backend & ML"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "text": "Soy estudiante avanzado de Análisis en Computación con experiencia en desarrollo backend utilizando Java y Python, bases de datos relacionales y proyectos con machine learning."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "items": [
+      {
+        "title": "Clasificador de Galaxias con Machine Learning",
+        "description": "Clasificador de galaxias que utiliza una CNN para categorizar galaxias en base a la secuencia de Hubble.",
+        "icons": [
+          "python",
+          "numpy",
+          "flask",
+          "react",
+          "docker"
+        ],
+        "github": "https://github.com/Proyecto-2025/Machine_Learning_Galaxyes_Classifier_Project"
+      },
+      {
+        "title": "Bull Wallet",
+        "description": "Billetera virtual con autenticación, carga de saldo via QR y transferencias.",
+        "icons": [
+          "ruby",
+          "sqlite",
+          "docker"
+        ],
+        "github": "https://github.com/Leonidas314/Proyecto_Virtual_Wallet_AyDS"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contacto"
+  },
+  "footer": {
+    "text": "© 2026 Lautaro Budin"
+  }
+}
