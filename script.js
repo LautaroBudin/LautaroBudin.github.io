@@ -81,8 +81,8 @@ document.addEventListener('click', () => {
 });
 
 document.querySelectorAll('.lang-option').forEach(option => {
-    option.addEventListener('click', function (e) {
-        const lang = this.getAttribute('data-lang');
+    option.addEventListener('click', (e) => {
+        const lang = e.currentTarget.getAttribute('data-lang');
         updateContent(lang);
     });
 });
@@ -129,13 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang && SUPPORTED_LANGS.includes(savedLang)) {
-        updateContent(savedLang);
-    } else {
-        const browserLang = navigator.language.split('-')[0];
-        const defaultLang = SUPPORTED_LANGS.includes(browserLang) ? browserLang : 'en';
-        updateContent(defaultLang);
-    }
+    const browserLang = navigator.language.split('-')[0];
+    const defaultLang = savedLang && SUPPORTED_LANGS.includes(savedLang)
+        ? savedLang
+        : SUPPORTED_LANGS.includes(browserLang) ? browserLang : 'en';
+    updateContent(defaultLang);
 
     const themeToggle = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
@@ -159,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTheme) {
         setTheme(savedTheme);
     } else {
-        // Default to dark if no saved theme
         setTheme('dark');
     }
 
@@ -178,32 +175,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
     }
 
+    const header = document.querySelector('header');
     let scrollThrottle;
-    const updateScrollProgress = () => {
+
+    const handleScroll = () => {
         if (scrollThrottle) return;
 
         scrollThrottle = true;
         requestAnimationFrame(() => {
-            const h = document.documentElement,
-                b = document.body,
-                st = 'scrollTop',
-                sh = 'scrollHeight';
+            const h = document.documentElement;
+            const b = document.body;
+            const st = 'scrollTop';
+            const sh = 'scrollHeight';
             const totalHeight = (h[sh] || b[sh]) - h.clientHeight;
             const scrollPercent = totalHeight > 0 ? (h[st] || b[st]) / totalHeight : 0;
             document.body.style.setProperty('--scroll-percent', scrollPercent);
+
+            header.classList.toggle('scrolled', window.scrollY > 50);
+
             scrollThrottle = false;
         });
     };
 
-    window.addEventListener('scroll', updateScrollProgress);
-    updateScrollProgress();
-
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
 });
