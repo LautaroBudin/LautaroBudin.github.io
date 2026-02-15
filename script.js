@@ -51,7 +51,6 @@ async function updateContent(lang) {
             }
         });
 
-        // Update active state in dropdown
         document.querySelectorAll('.lang-option').forEach(option => {
             if (option.getAttribute('data-lang') === lang) {
                 option.classList.add('active');
@@ -91,7 +90,6 @@ document.querySelectorAll('.lang-option').forEach(option => {
 const SUPPORTED_LANGS = ['es', 'en'];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Spotlight Effect logic
     const presentation = document.getElementById('presentation');
     const gradientTexts = document.querySelectorAll('.gradient-text');
     const cursorGlow = document.querySelector('.cursor-glow');
@@ -138,7 +136,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const defaultLang = SUPPORTED_LANGS.includes(browserLang) ? browserLang : 'en';
         updateContent(defaultLang);
     }
-    // Mobile Menu Logic
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    function setTheme(theme) {
+        htmlElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    }
+
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
 

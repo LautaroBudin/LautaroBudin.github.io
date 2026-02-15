@@ -5,8 +5,42 @@
     --text-secondary: #AAB3D6;
     --accent: #3A63FF;
     --accent-hover: #2846C7;
+
+    --white: #ffffff;
+    --gray-100: #f7fafc;
+    --gray-200: #edf2f7;
+    --gray-700: #2d3748;
+    --gray-800: #1a202c;
+    --blue-500: #3A63FF;
+    --blue-600: #2b4acb;
 }
 
+[data-theme="light"] {
+    --bg-main: #fefefe;
+    --bg-card: #f4f6ff;
+    --text-main: #1a202c;
+    --text-secondary: #4a5568;
+    --accent: #3A63FF;
+    --accent-hover: #2b4acb;
+}
+
+body,
+.project,
+.lang-options,
+.gradient-text,
+.section-icon,
+h2,
+p,
+a,
+.btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background: var(--accent);
+    color: var(--text-main);
+}
 
 * {
     margin: 0;
@@ -24,13 +58,115 @@ body {
 }
 
 header {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    padding: 0 40px;
 }
 
 nav {
+    grid-column: 2;
+}
+
+.top-right-controls {
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+    z-index: 1000;
+}
+
+.lang-btn {
+    height: 36px;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 80px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    overflow: visible;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    perspective: 500px;
+}
+
+
+.theme-toggle::after {
+    content: "";
+    position: absolute;
+    width: 64px;
+    height: 36px;
+    background: #e0e0e0;
+    border: 1px solid #bcbcbc;
+    border-radius: 3px;
+    top: 50%;
+    left: 50%;
+    margin-left: -32px;
+    margin-top: -18px;
+
+    background: linear-gradient(to right, #d4d4d4 49%, #e8e8e8 51%);
+
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    z-index: 3;
+    transform-style: preserve-3d;
+}
+
+.theme-toggle:not([data-theme="light"])::after {
+    transform: rotateY(25deg);
+
+    background: linear-gradient(to right, #fdfdfd 48%, #b8b8b8 52%);
+
+    box-shadow: -6px 4px 12px rgba(0, 0, 0, 0.2),
+        inset -4px 0 8px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(255, 170, 80, 0.6),
+        0 0 40px rgba(255, 140, 0, 0.4);
+
+    border-color: rgba(255, 160, 60, 0.6);
+}
+
+[data-theme="light"] .theme-toggle::after {
+    transform: rotateY(-25deg);
+
+    background: linear-gradient(to right, #b8b8b8 48%, #fdfdfd 52%);
+
+    box-shadow: 6px 4px 12px rgba(0, 0, 0, 0.2),
+        inset 4px 0 8px rgba(0, 0, 0, 0.1);
+
+    border-color: #bcbcbc;
+}
+
+.theme-toggle:not([data-theme="light"]),
+[data-theme="light"] .theme-toggle {
+    box-shadow: none;
+    background: transparent;
+    border-color: transparent;
+}
+
+.lang-btn {
+    padding: 0 12px;
+    gap: 8px;
 }
 
 .nav-links {
@@ -291,25 +427,16 @@ footer {
 
 
 .language-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: relative;
     z-index: 1000;
 }
 
+
+
 .lang-btn {
-    background: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
-    padding: 8px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
     gap: 8px;
     font-size: 0.9rem;
     font-weight: 600;
-    transition: all 0.3s ease;
 }
 
 .lang-btn:hover,
@@ -386,11 +513,18 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .language-container {
-        top: 20px;
-        right: auto;
-        left: 20px;
-        z-index: 1002;
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .top-right-controls {
+        position: static;
+        order: -1;
+        width: 100%;
+        justify-content: center;
     }
 
     #presentation {
