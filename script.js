@@ -172,4 +172,24 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.remove("active");
         }));
     }
+
+    let scrollThrottle;
+    const updateScrollProgress = () => {
+        if (scrollThrottle) return;
+
+        scrollThrottle = true;
+        requestAnimationFrame(() => {
+            const h = document.documentElement,
+                b = document.body,
+                st = 'scrollTop',
+                sh = 'scrollHeight';
+            const totalHeight = (h[sh] || b[sh]) - h.clientHeight;
+            const scrollPercent = totalHeight > 0 ? (h[st] || b[st]) / totalHeight : 0;
+            document.body.style.setProperty('--scroll-percent', scrollPercent);
+            scrollThrottle = false;
+        });
+    };
+
+    window.addEventListener('scroll', updateScrollProgress);
+    updateScrollProgress();
 });
