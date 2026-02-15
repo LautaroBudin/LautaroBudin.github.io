@@ -91,6 +91,45 @@ document.querySelectorAll('.lang-option').forEach(option => {
 const SUPPORTED_LANGS = ['es', 'en'];
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Spotlight Effect logic
+    const presentation = document.getElementById('presentation');
+    const gradientTexts = document.querySelectorAll('.gradient-text');
+    const cursorGlow = document.querySelector('.cursor-glow');
+
+    if (presentation && cursorGlow) {
+        presentation.addEventListener('mousemove', (e) => {
+            const rect = presentation.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            cursorGlow.style.setProperty('--glow-x', `${x}px`);
+            cursorGlow.style.setProperty('--glow-y', `${y}px`);
+
+            gradientTexts.forEach(text => {
+                const textRect = text.getBoundingClientRect();
+                if (e.clientX >= textRect.left && e.clientX <= textRect.right &&
+                    e.clientY >= textRect.top && e.clientY <= textRect.bottom) {
+                    const tx = ((e.clientX - textRect.left) / textRect.width) * 100;
+                    const ty = ((e.clientY - textRect.top) / textRect.height) * 100;
+                    text.style.setProperty('--x', `${tx}%`);
+                    text.style.setProperty('--y', `${ty}%`);
+                    text.style.setProperty('--active', '1');
+                    cursorGlow.style.opacity = '1';
+                } else {
+                    text.style.setProperty('--active', '0');
+                    cursorGlow.style.opacity = '0';
+                }
+            });
+        });
+
+        presentation.addEventListener('mouseleave', () => {
+            cursorGlow.style.opacity = '0';
+            gradientTexts.forEach(text => {
+                text.style.setProperty('--active', '0');
+            });
+        });
+    }
+
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang && SUPPORTED_LANGS.includes(savedLang)) {
         updateContent(savedLang);

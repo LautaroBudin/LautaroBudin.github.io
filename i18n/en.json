@@ -2,8 +2,12 @@
     "header": {
         "role": "Computer Analysis Student | Backend & ML"
     },
+    "presentation": {
+        "greeting": "Hi! I'm Lautaro Budin",
+        "role": "Advanced Computer Analysis student with experience in backend development and machine learning."
+    },
     "about": {
-        "title": "About Me",
+        "title": "About me",
         "text": "I am an advanced Computer Analysis student with experience in backend development using Java and Python, relational databases, and machine learning projects."
     },
     "projects": {

@@ -2,6 +2,10 @@
   "header": {
     "role": "Estudiante de Análisis en Computación | Backend & ML"
   },
+  "presentation": {
+    "greeting": "¡Hola! Soy Lautaro Budin",
+    "role": "Estudiante avanzado de Análisis de Sistemas con experiencia en desarrollo backend y machine learning."
+  },
   "about": {
     "title": "Sobre mí",
     "text": "Soy estudiante avanzado de Análisis en Computación con experiencia en desarrollo backend utilizando Java y Python, bases de datos relacionales y proyectos con machine learning."
