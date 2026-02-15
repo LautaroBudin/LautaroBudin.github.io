@@ -124,3 +124,98 @@ footer {
     font-size: 0.9em;
     color: var(--text-secondary);
 }
+
+
+.language-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background: var(--accent);
+    color: var(--text-main);
+}
+
+.chevron {
+    transition: transform 0.2s ease;
+}
+
+.lang-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    width: 120px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.lang-options.show {
+    display: flex;
+    animation: fadeIn 0.1s ease;
+}
+
+.lang-option {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.lang-option:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+}
+
+.lang-option.active {
+    background: rgba(58, 99, 255, 0.1);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .language-container {
+        top: 15px;
+        right: 15px;
+    }
+}

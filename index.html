@@ -12,26 +12,53 @@
 
 <body>
 
+    <div class="language-container">
+        <button id="language-selector" class="lang-btn" aria-label="Select Language">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="globe-icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+            </svg>
+            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
+        </button>
+        <div id="language-options" class="lang-options">
+            <button class="lang-option" data-lang="es">
+                Español
+            </button>
+            <button class="lang-option" data-lang="en">
+                English
+            </button>
+        </div>
+    </div>
+
     <header>
         <h1>Lautaro Budin</h1>
-        <p>Estudiante de Análisis en Computación | Backend & ML</p>
+        <p data-i18n="header.role">Estudiante de Análisis en Computación | Backend & ML</p>
     </header>
 
     <section id="about">
-        <h2>Sobre mí</h2>
-        <p>
+        <h2 data-i18n="about.title">Sobre mí</h2>
+        <p data-i18n="about.text">
             Soy estudiante avanzado de Análisis en Computación con experiencia en desarrollo backend
             utilizando Java y Python, bases de datos relacionales y proyectos con machine learning.
         </p>
     </section>
 
     <section id="projects">
-        <h2>Proyectos</h2>
+        <h2 data-i18n="projects.title">Proyectos</h2>
 
         <div class="projects-grid">
             <div class="project">
-                <h3>Clasificador de Galaxias con Machine Learning</h3>
-                <p>Clasificador de galaxias que utiliza una CNN para categorizar galaxias en base a la secuencia de
+                <h3 data-i18n="projects.items.0.title">Clasificador de Galaxias con Machine Learning</h3>
+                <p data-i18n="projects.items.0.description">Clasificador de galaxias que utiliza una CNN para
+                    categorizar galaxias en
+                    base a la secuencia de
                     Hubble.</p>
                 <div class="tech-icons">
                     <i class="devicon-python-plain" title="Python"></i>
@@ -49,8 +76,10 @@
             </div>
 
             <div class="project">
-                <h3>Bull Wallet</h3>
-                <p>Billetera virtual con autenticación, carga de saldo via QR y transferencias.</p>
+                <h3 data-i18n="projects.items.1.title">Bull Wallet</h3>
+                <p data-i18n="projects.items.1.description">Billetera virtual con autenticación, carga de saldo via QR y
+                    transferencias.
+                </p>
                 <div class="tech-icons">
                     <i class="devicon-ruby-plain" title="Ruby"></i>
 
@@ -70,7 +99,7 @@
     </section>
 
     <section id="contact">
-        <h2>Contacto</h2>
+        <h2 data-i18n="contact.title">Contacto</h2>
         <div class="links">
             <a href="mailto:lautaro_budin@hotmail.com" class="btn" aria-label="Email">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -89,9 +118,10 @@
     </section>
 
     <footer>
-        <p>© 2026 Lautaro Budin</p>
+        <p data-i18n="footer.text">© 2026 Lautaro Budin</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
