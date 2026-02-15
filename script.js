@@ -143,12 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function setTheme(theme) {
         htmlElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
+        if (themeToggle) {
+            themeToggle.checked = theme === 'dark';
+        }
     }
 
     if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        themeToggle.addEventListener('change', () => {
+            const newTheme = themeToggle.checked ? 'dark' : 'light';
             setTheme(newTheme);
         });
     }
@@ -156,6 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         setTheme(savedTheme);
+    } else {
+        // Default to dark if no saved theme
+        setTheme('dark');
     }
 
     const hamburger = document.querySelector(".hamburger");
