@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lautaro Budin | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <header>
@@ -16,7 +20,7 @@
     <section id="about">
         <h2>Sobre mí</h2>
         <p>
-            Soy estudiante de Análisis en Computación con experiencia en desarrollo backend 
+            Soy estudiante avanzado de Análisis en Computación con experiencia en desarrollo backend
             utilizando Java y Python, bases de datos relacionales y proyectos con machine learning.
         </p>
     </section>
@@ -24,22 +28,64 @@
     <section id="projects">
         <h2>Proyectos</h2>
 
-        <div class="project">
-            <h3>Nombre del Proyecto</h3>
-            <p>Breve descripción del proyecto y qué problema resuelve.</p>
-            <p><strong>Tecnologías:</strong> Java, PostgreSQL, Gradle</p>
-            <div class="links">
-                <a href="#" target="_blank">GitHub</a>
-                <a href="#" target="_blank">Demo</a>
+        <div class="projects-grid">
+            <div class="project">
+                <h3>Clasificador de Galaxias con Machine Learning</h3>
+                <p>Clasificador de galaxias que utiliza una CNN para categorizar galaxias en base a la secuencia de
+                    Hubble.</p>
+                <div class="tech-icons">
+                    <i class="devicon-python-plain" title="Python"></i>
+                    <i class="devicon-numpy-plain" title="NumPy"></i>
+                    <i class="devicon-flask-original" title="Flask"></i>
+                    <i class="devicon-react-original" title="React"></i>
+                    <i class="devicon-docker-plain" title="Docker"></i>
+                </div>
+                <div class="links">
+                    <a href="https://github.com/Proyecto-2025/Machine_Learning_Galaxyes_Classifier_Project"
+                        target="_blank" class="btn" aria-label="GitHub">
+                        <i class="devicon-github-original"></i>
+                    </a>
+                </div>
             </div>
+
+            <div class="project">
+                <h3>Bull Wallet</h3>
+                <p>Billetera virtual con autenticación, carga de saldo via QR y transferencias.</p>
+                <div class="tech-icons">
+                    <i class="devicon-ruby-plain" title="Ruby"></i>
+
+                    <i class="devicon-sqlite-plain" title="SQLite3"></i>
+                    <i class="devicon-docker-plain" title="Docker"></i>
+                </div>
+                <div class="links">
+                    <a href="https://github.com/Leonidas314/Proyecto_Virtual_Wallet_AyDS" target="_blank" class="btn"
+                        aria-label="GitHub">
+                        <i class="devicon-github-original"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
 
     </section>
 
     <section id="contact">
         <h2>Contacto</h2>
-        <p>Email: tuemail@email.com</p>
-        <p>GitHub: github.com/LautaroBudin</p>
+        <div class="links">
+            <a href="mailto:lautaro_budin@hotmail.com" class="btn" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                </svg>
+            </a>
+            <a href="https://github.com/LautaroBudin" target="_blank" class="btn" aria-label="GitHub">
+                <i class="devicon-github-original"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/lautaro-budin-43066a194/" target="_blank" class="btn"
+                aria-label="LinkedIn">
+                <i class="devicon-linkedin-plain"></i>
+            </a>
+        </div>
     </section>
 
     <footer>
@@ -47,5 +93,5 @@
     </footer>
 
 </body>
-</html>
 
+</html>

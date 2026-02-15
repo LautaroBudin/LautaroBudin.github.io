@@ -1,3 +1,13 @@
+:root {
+    --bg-main: #0B0F2A;
+    --bg-card: #11163A;
+    --text-main: #D8E1FF;
+    --text-secondary: #AAB3D6;
+    --accent: #3A63FF;
+    --accent-hover: #2846C7;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +15,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     padding: 20px;
 }
 
@@ -21,29 +31,96 @@ section {
     margin-bottom: 40px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin-bottom: 10px;
 }
 
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
 .project {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    flex: 1 1 350px;
+    max-width: 500px;
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    gap: 15px;
+    text-align: center;
 }
 
-.links a {
-    margin-right: 10px;
+.project p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1.1rem;
+    display: block;
+    text-align: center;
+    align-self: start;
+    width: 100%;
+}
+
+.project h3 {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    min-height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 3rem;
+    color: var(--text-secondary);
+    padding: 15px 0;
+    margin-top: auto;
+}
+
+
+.links {
+    display: inline-flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: auto;
+    justify-self: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
     text-decoration: none;
-    color: #0066cc;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+    line-height: 0;
 }
 
-.links a:hover {
-    text-decoration: underline;
+.btn:hover {
+    background: var(--accent);
+    color: var(--text-main);
+    transform: translateY(-2px);
 }
+
 
 footer {
     text-align: center;
     margin-top: 40px;
     font-size: 0.9em;
+    color: var(--text-secondary);
 }
