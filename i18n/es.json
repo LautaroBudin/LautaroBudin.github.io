@@ -34,6 +34,16 @@
           "docker"
         ],
         "github": "https://github.com/Leonidas314/Proyecto_Virtual_Wallet_AyDS"
+      },
+      {
+        "title": "Budasswords",
+        "description": "Gestor de contraseñas personal multiplataforma seguro y offline-first para Android y Windows.",
+        "icons": [
+          "flutter",
+          "supabase",
+          "sqlite"
+        ],
+        "github": "https://github.com/budanga/budasswords"
       }
     ]
   },

@@ -34,6 +34,16 @@
                     "docker"
                 ],
                 "github": "https://github.com/Leonidas314/Proyecto_Virtual_Wallet_AyDS"
+            },
+            {
+                "title": "Budasswords",
+                "description": "A production-quality, secure, and offline-first cross-platform personal password manager for Android and Windows.",
+                "icons": [
+                    "flutter",
+                    "supabase",
+                    "sqlite"
+                ],
+                "github": "https://github.com/budanga/budasswords"
             }
         ]
     },

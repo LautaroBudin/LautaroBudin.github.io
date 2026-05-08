@@ -566,3 +566,11 @@ footer {
 .bull-card::before {
     background-image: url('assets/bull.webp');
 }
+
+.budasswords-card::before {
+    background-image: url('assets/budasswords.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    opacity: 0.15;
+}
