@@ -1,47 +1,46 @@
-const languageSelector = document.getElementById('language-selector');
-const languageOptions = document.getElementById('language-options');
+/**
+ * CYBERNETIC KINETIC OS // RUNTIME CONTROLLER
+ * Handles i18n Localization, Aperture Navigation, Modal Systems, and Keyboard Commands.
+ */
 
 const BASE_LANG = 'es';
+const SUPPORTED_LANGS = ['es', 'en'];
 const translationsCache = {};
 
+// Helper: Traverse nested JSON keys like "header.role"
 function getNestedValue(obj, key) {
-    return key.split('.').reduce((prev, curr) => {
-        return prev ? prev[curr] : null;
-    }, obj);
+    if (!obj || !key) return null;
+    return key.split('.').reduce((prev, curr) => (prev ? prev[curr] : null), obj);
 }
 
+// Load Translation JSON from i18n/
 async function loadTranslations(lang) {
     if (translationsCache[lang]) {
         return translationsCache[lang];
     }
-
     try {
         const response = await fetch(`i18n/${lang}.json`);
-        if (!response.ok) throw new Error(`Failed to load ${lang}.json`);
-
+        if (!response.ok) throw new Error(`Failed to load i18n/${lang}.json`);
         const data = await response.json();
         translationsCache[lang] = data;
         return data;
     } catch (error) {
-        console.error('Error loading translations:', error);
+        console.error('Translation loading error:', error);
         return null;
     }
 }
 
+// Update DOM elements matching [data-i18n]
 async function updateContent(lang) {
     try {
         const baseTranslations = await loadTranslations(BASE_LANG);
-        const translations = lang === BASE_LANG
-            ? baseTranslations
-            : await loadTranslations(lang);
+        const translations = lang === BASE_LANG ? baseTranslations : await loadTranslations(lang);
 
         if (!baseTranslations) return;
 
         const elements = document.querySelectorAll('[data-i18n]');
-
         elements.forEach(element => {
             const key = element.getAttribute('data-i18n');
-
             const value =
                 (translations ? getNestedValue(translations, key) : null) ??
                 getNestedValue(baseTranslations, key);
@@ -51,152 +50,95 @@ async function updateContent(lang) {
             }
         });
 
-        document.querySelectorAll('.lang-option').forEach(option => {
-            if (option.getAttribute('data-lang') === lang) {
-                option.classList.add('active');
-            } else {
-                option.classList.remove('active');
-            }
-        });
-
         localStorage.setItem('preferredLanguage', lang);
         document.documentElement.lang = lang;
-
-        languageOptions.classList.remove('show');
-        languageSelector.classList.remove('active');
     } catch (error) {
-        console.error('Error updating content:', error);
+        console.error('Content update error:', error);
     }
 }
 
-languageSelector.addEventListener('click', (e) => {
-    e.stopPropagation();
-    languageOptions.classList.toggle('show');
-    languageSelector.classList.toggle('active');
-});
+// Modal Management
+function openBioModal() {
+    const modal = document.getElementById('provenance-modal');
+    if (modal) {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+}
 
-document.addEventListener('click', () => {
-    languageOptions.classList.remove('show');
-    languageSelector.classList.remove('active');
-});
+function closeBioModal() {
+    const modal = document.getElementById('provenance-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+}
 
-document.querySelectorAll('.lang-option').forEach(option => {
-    option.addEventListener('click', (e) => {
-        const lang = e.currentTarget.getAttribute('data-lang');
-        updateContent(lang);
-    });
-});
-
-const SUPPORTED_LANGS = ['es', 'en'];
-
+// Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
-    const presentation = document.getElementById('presentation');
-    const gradientTexts = document.querySelectorAll('.gradient-text');
-    const cursorGlow = document.querySelector('.cursor-glow');
-
-    if (presentation && cursorGlow) {
-        presentation.addEventListener('mousemove', (e) => {
-            const rect = presentation.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            cursorGlow.style.setProperty('--glow-x', `${x}px`);
-            cursorGlow.style.setProperty('--glow-y', `${y}px`);
-
-            gradientTexts.forEach(text => {
-                const textRect = text.getBoundingClientRect();
-                if (e.clientX >= textRect.left && e.clientX <= textRect.right &&
-                    e.clientY >= textRect.top && e.clientY <= textRect.bottom) {
-                    const tx = ((e.clientX - textRect.left) / textRect.width) * 100;
-                    const ty = ((e.clientY - textRect.top) / textRect.height) * 100;
-                    text.style.setProperty('--x', `${tx}%`);
-                    text.style.setProperty('--y', `${ty}%`);
-                    text.style.setProperty('--active', '1');
-                    cursorGlow.style.opacity = '1';
-                } else {
-                    text.style.setProperty('--active', '0');
-                    cursorGlow.style.opacity = '0';
-                }
-            });
-        });
-
-        presentation.addEventListener('mouseleave', () => {
-            cursorGlow.style.opacity = '0';
-            gradientTexts.forEach(text => {
-                text.style.setProperty('--active', '0');
-            });
-        });
-    }
-
+    // 1. Language Initialization
     const savedLang = localStorage.getItem('preferredLanguage');
-    const browserLang = navigator.language.split('-')[0];
-    const defaultLang = savedLang && SUPPORTED_LANGS.includes(savedLang)
+    const browserLang = navigator.language ? navigator.language.split('-')[0] : 'es';
+    let currentLang = savedLang && SUPPORTED_LANGS.includes(savedLang)
         ? savedLang
-        : SUPPORTED_LANGS.includes(browserLang) ? browserLang : 'en';
-    updateContent(defaultLang);
+        : SUPPORTED_LANGS.includes(browserLang) ? browserLang : 'es';
 
-    const themeToggle = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
+    updateContent(currentLang);
 
-    function setTheme(theme) {
-        htmlElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        if (themeToggle) {
-            themeToggle.checked = theme === 'dark';
+    // Language Toggle Button
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateContent(currentLang);
+        });
+    }
+
+    // 2. Modal Triggers
+    const aboutBtn = document.getElementById('about-trigger-btn');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+
+    if (aboutBtn) aboutBtn.addEventListener('click', openBioModal);
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeBioModal);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeBioModal);
+
+    // 3. Keyboard Commands
+    document.addEventListener('keydown', (e) => {
+        // ESC -> Close Modal
+        if (e.key === 'Escape') {
+            closeBioModal();
         }
-    }
 
-    if (themeToggle) {
-        themeToggle.addEventListener('change', () => {
-            const newTheme = themeToggle.checked ? 'dark' : 'light';
-            setTheme(newTheme);
-        });
-    }
+        // Ignore hotkeys when typing in inputs/textareas
+        if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else {
-        setTheme('dark');
-    }
+        // Key 'A' -> Toggle About Modal
+        if (e.key === 'a' || e.key === 'A') {
+            const modal = document.getElementById('provenance-modal');
+            if (modal && modal.classList.contains('active')) {
+                closeBioModal();
+            } else {
+                openBioModal();
+            }
+        }
 
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
+        // Key 'L' -> Toggle Language
+        if (e.key === 'l' || e.key === 'L') {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateContent(currentLang);
+        }
 
-    if (hamburger && navLinks) {
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navLinks.classList.toggle("active");
-        });
-
-        document.querySelectorAll(".nav-links li a").forEach(n => n.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navLinks.classList.remove("active");
-        }));
-    }
-
-    const header = document.querySelector('header');
-    let scrollThrottle;
-
-    const handleScroll = () => {
-        if (scrollThrottle) return;
-
-        scrollThrottle = true;
-        requestAnimationFrame(() => {
-            const h = document.documentElement;
-            const b = document.body;
-            const st = 'scrollTop';
-            const sh = 'scrollHeight';
-            const totalHeight = (h[sh] || b[sh]) - h.clientHeight;
-            const scrollPercent = totalHeight > 0 ? (h[st] || b[st]) / totalHeight : 0;
-            document.body.style.setProperty('--scroll-percent', scrollPercent);
-
-            header.classList.toggle('scrolled', window.scrollY > 50);
-
-            scrollThrottle = false;
-        });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+        // Numbers 1, 2, 3 -> Focus Apertures
+        if (['1', '2', '3'].includes(e.key)) {
+            const target = document.getElementById(`aperture-0${e.key}`);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                target.style.outline = '1px solid #0038FF';
+                setTimeout(() => { target.style.outline = 'none'; }, 800);
+            }
+        }
+    });
 });

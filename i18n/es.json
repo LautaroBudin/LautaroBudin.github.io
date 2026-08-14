@@ -1,56 +1,53 @@
 {
   "header": {
-    "role": "Estudiante de Análisis en Computación | Backend & ML"
+    "name": "LAUTARO BUDIN",
+    "role": "ANALISTA EN COMPUTACIÓN — BACKEND & ML"
   },
-  "presentation": {
-    "greeting": "¡Hola! Soy Lautaro Budin",
-    "role": "Estudiante avanzado de Análisis de Sistemas con experiencia en desarrollo backend y machine learning."
-  },
-  "about": {
-    "title": "Sobre mí",
-    "text": "Desarrollador Backend enfocado en construir sistemas robustos y APIs escalables usando Java y Python. Trabajo con bases de datos relacionales e integro modelos de machine learning en aplicaciones listas para producción."
+  "nav": {
+    "lang": "[ES / EN]",
+    "about": "SOBRE MÍ"
   },
   "projects": {
-    "title": "Proyectos",
+    "status_live": "SISTEMA_ACTIVO",
+    "status_offline": "OFFLINE_FIRST",
+    "status_tx": "MOTOR_TRANSACCIONAL",
+    "dispatch": "VER CÓDIGO FUENTE",
     "items": [
       {
-        "title": "Clasificador de Galaxias con Machine Learning",
-        "description": "Clasificador de galaxias que utiliza una CNN para categorizar galaxias en base a la secuencia de Hubble.",
-        "icons": [
-          "python",
-          "numpy",
-          "flask",
-          "react",
-          "docker"
-        ],
-        "github": "https://github.com/Proyecto-2025/Machine_Learning_Galaxyes_Classifier_Project"
+        "taxonomy": "TAXONOMÍA MORFOLÓGICA CNN | APERTURA_01",
+        "title": "CLASIFICADOR DE GALAXIAS",
+        "description": "Sistema de visión por computadora que implementa una Red Neuronal Convolucional (CNN) para clasificar imágenes astronómicas de galaxias según el esquema morfológico de la secuencia de Hubble, integrando backend en Flask y visualización interactiva."
       },
       {
-        "title": "Bull Wallet",
-        "description": "Billetera virtual con autenticación, carga de saldo via QR y transferencias.",
-        "icons": [
-          "ruby",
-          "sqlite",
-          "docker"
-        ],
-        "github": "https://github.com/Leonidas314/Proyecto_Virtual_Wallet_AyDS"
+        "taxonomy": "ARQUITECTURA DE BÓVEDA OFFLINE-FIRST | APERTURA_02",
+        "title": "BUDASSWORDS",
+        "description": "Bóveda de gestión de contraseñas multiplataforma para Android y Windows con arquitectura offline-first, cifrado local de alta seguridad en SQLite y sincronización opcional con Supabase."
       },
       {
-        "title": "Budasswords",
-        "description": "Gestor de contraseñas personal multiplataforma seguro y offline-first para Android y Windows.",
-        "icons": [
-          "flutter",
-          "supabase",
-          "sqlite"
-        ],
-        "github": "https://github.com/budanga/budasswords"
+        "taxonomy": "MECANISMO DE TRANSACCIÓN DE LIBRO MAYOR QR | APERTURA_03",
+        "title": "BULL WALLET",
+        "description": "Aplicación de billetera virtual con autenticación de usuarios, motor transaccional de transferencias y carga de saldo mediante lectura de códigos QR, desarrollada en Ruby con SQLite3 y contenedores Docker."
       }
     ]
   },
-  "contact": {
-    "title": "Contacto"
+  "operator": {
+    "title": "LAUTARO BUDIN",
+    "role_summary": "Analista en Computación | APIs Backend en Java y Python, BDs Relacionales",
+    "bio": "Desarrollador Backend enfocado en construir sistemas robustos y APIs escalables usando Java y Python. Trabajo con bases de datos relacionales e integro modelos de machine learning en aplicaciones listas para producción."
+  },
+  "modal": {
+    "title": "DOSSIER // SOBRE MÍ",
+    "designation_label": "DESIGNACIÓN",
+    "designation_value": "Analista en Computación — Graduado Universitario",
+    "specialization_label": "ESPECIALIZACIÓN TÉCNICA",
+    "specialization_value": "Ingeniería de sistemas backend, APIs escalables de alto rendimiento, arquitectura de datos relacionales (PostgreSQL / SQLite / MySQL) e integración de redes neuronales convolucionales en entornos productivos.",
+    "core_technologies": "TECNOLOGÍAS PRINCIPALES: Java, Python, Docker, PyTorch, SQL, APIs REST",
+    "channels_label": "CANALES DIRECTOS DE COMUNICACIÓN",
+    "close": "CERRAR [ESC]"
   },
   "footer": {
-    "text": "© 2026 Lautaro Budin"
+    "email": "EMAIL",
+    "github": "GITHUB",
+    "linkedin": "LINKEDIN"
   }
 }

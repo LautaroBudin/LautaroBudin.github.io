@@ -1,225 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="es">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio of Lautaro Budin, a Backend Developer and Machine Learning enthusiast tailored for high-performance applications.">
+        content="Portfolio of Lautaro Budin, Computer Analyst specializing in robust backend systems, scalable APIs, and machine learning integration.">
+    <title>LAUTARO BUDIN // CYBERNETIC KINETIC OS</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print"
-        onload="this.media='all'" />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     </noscript>
-    <script defer src="script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lautaro Budin | Portfolio</title>
+    
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 
 <body>
-
-    <header>
-        <div class="brand">
-            <a href="#presentation">LB<span>.</span></a>
+    <!-- Top Header -->
+    <header class="os-header">
+        <div class="header-brand">
+            <h1 class="brand-title" data-i18n="header.name">LAUTARO BUDIN</h1>
+            <span class="brand-subtitle" data-i18n="header.role">ANALISTA EN COMPUTACIÓN — BACKEND & ML</span>
         </div>
-
-        <nav>
-            <button class="hamburger" aria-label="Toggle navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+        <nav class="header-nav">
+            <button id="lang-toggle-btn" class="nav-btn lang-btn" aria-label="Toggle language" data-i18n="nav.lang">
+                [ES / EN]
             </button>
-            <ul class="nav-links">
-                <li><a href="#projects" data-i18n="projects.title">Projects</a></li>
-                <li><a href="#about" data-i18n="about.title">About me</a></li>
-                <li><a href="#contact" data-i18n="contact.title">Contact</a></li>
-            </ul>
+            <button id="about-trigger-btn" class="nav-btn about-btn" data-i18n="nav.about">
+                SOBRE MÍ
+            </button>
         </nav>
-
-        <div class="top-right-controls">
-            <div class="theme-switch-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="theme-icon sun-icon">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-                <label class="theme-switch" for="theme-toggle">
-                    <input type="checkbox" id="theme-toggle" aria-label="Toggle theme">
-                    <span class="slider round"></span>
-                </label>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="theme-icon moon-icon">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </div>
-
-            <div class="language-container">
-                <button id="language-selector" class="lang-btn" aria-label="Select Language">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="globe-icon">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path
-                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                        </path>
-                    </svg>
-                    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="m6 9 6 6 6-6" />
-                    </svg>
-                </button>
-                <div id="language-options" class="lang-options">
-                    <button class="lang-option" data-lang="es">
-                        Español
-                    </button>
-                    <button class="lang-option" data-lang="en">
-                        English
-                    </button>
-                </div>
-            </div>
-        </div>
     </header>
 
-    <section id="presentation">
-        <div class="cursor-glow"></div>
-        <h1 class="gradient-text" data-i18n="presentation.greeting">Hi! I'm Lautaro Budin</h1>
-        <p class="role-text" data-i18n="presentation.role">Advanced Computer Analysis student with experience in backend
-            development and machine learning.</p>
-    </section>
+    <!-- Main Viewport: Tri-Aperture Matrix -->
+    <main class="os-viewport">
+        <!-- Aperture 01: Galaxy Classifier -->
+        <article class="aperture-card" id="aperture-01">
+            <span class="crosshair tl-cross">+</span>
+            <span class="crosshair tr-cross">+</span>
+            <span class="crosshair bl-cross">+</span>
+            <span class="crosshair br-cross">+</span>
 
-    <section id="projects">
-        <h2 class="section-title">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                class="section-icon">
-                <rect width="18" height="18" x="3" y="3" rx="2" />
-                <path d="M3 9h18" />
-                <path d="M9 21V9" />
-            </svg>
-            <span data-i18n="projects.title">Projects</span>
-        </h2>
-
-        <div class="projects-grid">
-            <div class="project galaxy-card">
-                <h3 data-i18n="projects.items.0.title">Galaxy Classifier with Machine Learning</h3>
-                <p data-i18n="projects.items.0.description">Galaxy classifier using a CNN to categorize galaxies based
-                    on the Hubble sequence.</p>
-                <div class="tech-icons">
-                    <i class="devicon-python-plain" title="Python"></i>
-                    <i class="devicon-numpy-plain" title="NumPy"></i>
-                    <i class="devicon-flask-original" title="Flask"></i>
-                    <i class="devicon-react-original" title="React"></i>
-                    <i class="devicon-docker-plain" title="Docker"></i>
+            <div class="aperture-visual">
+                <div class="visual-canvas galaxy-canvas">
+                    <svg class="schematic-svg" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="200" cy="160" r="110" stroke="rgba(240,242,245,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <circle cx="200" cy="160" r="65" stroke="rgba(240,242,245,0.25)" stroke-width="1"/>
+                        <circle cx="200" cy="160" r="10" fill="#FF3E00"/>
+                        <ellipse cx="200" cy="160" rx="180" ry="65" stroke="rgba(240,242,245,0.2)" stroke-width="1" transform="rotate(-25 200 160)"/>
+                        <ellipse cx="200" cy="160" rx="180" ry="65" stroke="rgba(0,56,255,0.4)" stroke-width="1" transform="rotate(35 200 160)"/>
+                        <line x1="10" y1="160" x2="390" y2="160" stroke="rgba(240,242,245,0.1)" stroke-width="0.5"/>
+                        <line x1="200" y1="10" x2="200" y2="310" stroke="rgba(240,242,245,0.1)" stroke-width="0.5"/>
+                        <text x="24" y="36" fill="rgba(240,242,245,0.4)" font-family="Space Mono" font-size="10">HUBBLE_SEQ::MORPH_ANALYSIS</text>
+                        <text x="290" y="290" fill="#FF3E00" font-family="Space Mono" font-size="10">CNN::PYTORCH</text>
+                    </svg>
                 </div>
-                <div class="links">
-                    <a href="https://github.com/Proyecto-2025/Machine_Learning_Galaxyes_Classifier_Project"
-                        target="_blank" class="btn" aria-label="GitHub">
-                        <i class="devicon-github-original"></i>
-                    </a>
+                <div class="status-badge">
+                    <span class="status-indicator live"></span>
+                    <span class="status-text" data-i18n="projects.status_live">SISTEMA_ACTIVO</span>
                 </div>
             </div>
 
-            <div class="project bull-card">
-                <h3 data-i18n="projects.items.1.title">Bull Wallet</h3>
-                <p data-i18n="projects.items.1.description">Virtual wallet with authentication, balance loading via QR
-                    and transfers.
+            <div class="aperture-content">
+                <div class="metadata-ribbon" data-i18n="projects.items.0.taxonomy">
+                    TAXONOMÍA MORFOLÓGICA CNN | APERTURA_01
+                </div>
+
+                <h2 class="aperture-title" data-i18n="projects.items.0.title">CLASIFICADOR DE GALAXIAS</h2>
+
+                <p class="aperture-description" data-i18n="projects.items.0.description">
+                    Sistema de visión por computadora que implementa una Red Neuronal Convolucional (CNN) para clasificar imágenes astronómicas de galaxias según el esquema morfológico de la secuencia de Hubble, integrando backend en Flask y visualización interactiva.
                 </p>
-                <div class="tech-icons">
-                    <i class="devicon-ruby-plain" title="Ruby"></i>
 
-                    <i class="devicon-sqlite-plain" title="SQLite3"></i>
-                    <i class="devicon-docker-plain" title="Docker"></i>
-                </div>
-                <div class="links">
-                    <a href="https://github.com/Leonidas314/Proyecto_Virtual_Wallet_AyDS" target="_blank" class="btn"
-                        aria-label="GitHub">
-                        <i class="devicon-github-original"></i>
+                <div class="aperture-footer">
+                    <div class="tech-pills">
+                        <span class="tech-tag"><i class="devicon-python-plain"></i> PYTHON</span>
+                        <span class="tech-tag"><i class="devicon-numpy-plain"></i> NUMPY</span>
+                        <span class="tech-tag"><i class="devicon-flask-original"></i> FLASK</span>
+                        <span class="tech-tag"><i class="devicon-react-original"></i> REACT</span>
+                        <span class="tech-tag"><i class="devicon-docker-plain"></i> DOCKER</span>
+                    </div>
+
+                    <a class="dispatch-btn" href="https://github.com/Proyecto-2025/Machine_Learning_Galaxyes_Classifier_Project" target="_blank" rel="noopener noreferrer">
+                        <span data-i18n="projects.dispatch">VER CÓDIGO FUENTE</span>
+                        <span class="btn-arrow">↗</span>
                     </a>
                 </div>
             </div>
+        </article>
 
-            <div class="project budasswords-card">
-                <h3 data-i18n="projects.items.2.title">Budasswords</h3>
-                <p data-i18n="projects.items.2.description">A production-quality, secure, and offline-first cross-platform personal password manager for Android and Windows.</p>
-                <div class="tech-icons">
-                    <i class="devicon-flutter-plain" title="Flutter"></i>
-                    <i class="devicon-supabase-plain" title="Supabase"></i>
-                    <i class="devicon-sqlite-plain" title="SQLite3"></i>
+        <!-- Aperture 02: Budasswords -->
+        <article class="aperture-card" id="aperture-02">
+            <span class="crosshair tl-cross">+</span>
+            <span class="crosshair tr-cross">+</span>
+            <span class="crosshair bl-cross">+</span>
+            <span class="crosshair br-cross">+</span>
+
+            <div class="aperture-visual">
+                <div class="visual-canvas vault-canvas">
+                    <svg class="schematic-svg" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="110" y="90" width="180" height="150" stroke="rgba(240,242,245,0.3)" stroke-width="1"/>
+                        <circle cx="200" cy="165" r="45" stroke="#0038FF" stroke-width="1.5"/>
+                        <circle cx="200" cy="165" r="14" fill="#0038FF"/>
+                        <path d="M150 90 V60 C150 30, 250 30, 250 60 V90" stroke="rgba(240,242,245,0.4)" stroke-width="1.5" fill="none"/>
+                        <line x1="120" y1="165" x2="155" y2="165" stroke="rgba(240,242,245,0.3)" stroke-width="1"/>
+                        <line x1="245" y1="165" x2="280" y2="165" stroke="rgba(240,242,245,0.3)" stroke-width="1"/>
+                        <text x="24" y="36" fill="rgba(240,242,245,0.4)" font-family="Space Mono" font-size="10">AES_256::ZERO_KNOWLEDGE</text>
+                        <text x="250" y="290" fill="rgba(240,242,245,0.5)" font-family="Space Mono" font-size="10">LOCAL_ENCRYPTION</text>
+                    </svg>
                 </div>
-                <div class="links">
-                    <a href="https://github.com/budanga/budasswords" target="_blank" class="btn" aria-label="GitHub">
-                        <i class="devicon-github-original"></i>
-                    </a>
+                <div class="status-badge">
+                    <span class="status-indicator offline"></span>
+                    <span class="status-text" data-i18n="projects.status_offline">OFFLINE_FIRST</span>
                 </div>
             </div>
 
+            <div class="aperture-content">
+                <div class="metadata-ribbon" data-i18n="projects.items.1.taxonomy">
+                    ARQUITECTURA DE BÓVEDA OFFLINE-FIRST | APERTURA_02
+                </div>
+
+                <h2 class="aperture-title" data-i18n="projects.items.1.title">BUDASSWORDS</h2>
+
+                <p class="aperture-description" data-i18n="projects.items.1.description">
+                    Bóveda de gestión de contraseñas multiplataforma para Android y Windows con arquitectura offline-first, cifrado local de alta seguridad en SQLite y sincronización opcional con Supabase.
+                </p>
+
+                <div class="aperture-footer">
+                    <div class="tech-pills">
+                        <span class="tech-tag"><i class="devicon-flutter-plain"></i> FLUTTER</span>
+                        <span class="tech-tag"><i class="devicon-supabase-plain"></i> SUPABASE</span>
+                        <span class="tech-tag"><i class="devicon-sqlite-plain"></i> SQLITE</span>
+                    </div>
+
+                    <a class="dispatch-btn" href="https://github.com/budanga/budasswords" target="_blank" rel="noopener noreferrer">
+                        <span data-i18n="projects.dispatch">VER CÓDIGO FUENTE</span>
+                        <span class="btn-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Aperture 03: Bull Wallet -->
+        <article class="aperture-card" id="aperture-03">
+            <span class="crosshair tl-cross">+</span>
+            <span class="crosshair tr-cross">+</span>
+            <span class="crosshair bl-cross">+</span>
+            <span class="crosshair br-cross">+</span>
+
+            <div class="aperture-visual">
+                <div class="visual-canvas ledger-canvas">
+                    <svg class="schematic-svg" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="60" y="70" width="80" height="80" stroke="rgba(240,242,245,0.3)" stroke-width="1"/>
+                        <rect x="80" y="90" width="40" height="40" fill="rgba(240,242,245,0.15)"/>
+                        <rect x="260" y="170" width="80" height="80" stroke="rgba(240,242,245,0.3)" stroke-width="1"/>
+                        <rect x="280" y="190" width="40" height="40" fill="rgba(0,56,255,0.2)"/>
+                        <path d="M140 110 H200 V210 H260" stroke="#0038FF" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        <circle cx="200" cy="160" r="18" fill="#0A0B0E" stroke="#FF3E00" stroke-width="1"/>
+                        <text x="200" y="164" fill="#FF3E00" font-family="Space Mono" font-size="10" text-anchor="middle">QR</text>
+                        <text x="24" y="290" fill="rgba(240,242,245,0.4)" font-family="Space Mono" font-size="10">TRANSACTION_STATE_MACHINE</text>
+                    </svg>
+                </div>
+                <div class="status-badge">
+                    <span class="status-indicator tx"></span>
+                    <span class="status-text" data-i18n="projects.status_tx">MOTOR_TRANSACCIONAL</span>
+                </div>
+            </div>
+
+            <div class="aperture-content">
+                <div class="metadata-ribbon" data-i18n="projects.items.2.taxonomy">
+                    MECANISMO DE TRANSACCIÓN DE LIBRO MAYOR QR | APERTURA_03
+                </div>
+
+                <h2 class="aperture-title" data-i18n="projects.items.2.title">BULL WALLET</h2>
+
+                <p class="aperture-description" data-i18n="projects.items.2.description">
+                    Aplicación de billetera virtual con autenticación de usuarios, motor transaccional de transferencias y carga de saldo mediante lectura de códigos QR, desarrollada en Ruby con SQLite3 y contenedores Docker.
+                </p>
+
+                <div class="aperture-footer">
+                    <div class="tech-pills">
+                        <span class="tech-tag"><i class="devicon-ruby-plain"></i> RUBY</span>
+                        <span class="tech-tag"><i class="devicon-sqlite-plain"></i> SQLITE3</span>
+                        <span class="tech-tag"><i class="devicon-docker-plain"></i> DOCKER</span>
+                    </div>
+
+                    <a class="dispatch-btn" href="https://github.com/Leonidas314/Proyecto_Virtual_Wallet_AyDS" target="_blank" rel="noopener noreferrer">
+                        <span data-i18n="projects.dispatch">VER CÓDIGO FUENTE</span>
+                        <span class="btn-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Bottom Console -->
+    <footer class="os-footer">
+        <div class="operator-dossier">
+            <h3 class="operator-title" data-i18n="operator.title">LAUTARO BUDIN</h3>
+            <p class="operator-summary" data-i18n="operator.role_summary">
+                Analista en Computación | APIs Backend en Java y Python, BDs Relacionales
+            </p>
+            <p class="operator-bio" data-i18n="operator.bio">
+                Desarrollador Backend enfocado en construir sistemas robustos y APIs escalables usando Java y Python. Trabajo con bases de datos relacionales e integro modelos de machine learning en aplicaciones listas para producción.
+            </p>
         </div>
 
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                class="section-icon">
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-            </svg>
-            <span data-i18n="about.title">About Me</span>
-        </h2>
-        <p data-i18n="about.text" class="about-text">
-            Backend developer focused on building robust systems and scalable APIs using Java and Python. I work with
-            relational databases and integrate machine learning models into production-ready applications.
-        </p>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-title">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                class="section-icon">
-                <path d="M22 2 11 13" />
-                <path d="m22 2-7 20-4-9-9-4Z" />
-            </svg>
-            <span data-i18n="contact.title">Contact</span>
-        </h2>
-        <div class="links">
-            <a href="mailto:lautaro_budin@hotmail.com" class="btn" aria-label="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path
-                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                </svg>
-            </a>
-            <a href="https://github.com/LautaroBudin" target="_blank" class="btn" aria-label="GitHub">
-                <i class="devicon-github-original"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/lautaro-budin-43066a194/" target="_blank" class="btn"
-                aria-label="LinkedIn">
-                <i class="devicon-linkedin-plain"></i>
-            </a>
+        <div class="footer-meta">
+            <nav class="footer-channels">
+                <a class="channel-link" href="mailto:lautaro_budin@hotmail.com" data-i18n="footer.email">EMAIL</a>
+                <a class="channel-link" href="https://github.com/LautaroBudin" target="_blank" rel="noopener noreferrer" data-i18n="footer.github">GITHUB</a>
+                <a class="channel-link" href="https://www.linkedin.com/in/lautaro-budin-43066a194/" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkedin">LINKEDIN</a>
+            </nav>
         </div>
-    </section>
-
-    <footer>
-        <p data-i18n="footer.text">© 2026 Lautaro Budin</p>
     </footer>
 
+    <!-- Bio Modal / Drawer -->
+    <div id="provenance-modal" class="provenance-modal" aria-hidden="true">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-container">
+            <span class="crosshair tl-cross">+</span>
+            <span class="crosshair tr-cross">+</span>
+            <span class="crosshair bl-cross">+</span>
+            <span class="crosshair br-cross">+</span>
+
+            <div class="modal-header">
+                <h3 class="modal-title" data-i18n="modal.title">DOSSIER // SOBRE MÍ</h3>
+                <button id="modal-close-btn" class="modal-close" data-i18n="modal.close">CERRAR [ESC]</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="dossier-grid">
+                    <div class="dossier-block">
+                        <span class="dossier-label" data-i18n="modal.designation_label">DESIGNACIÓN</span>
+                        <p class="dossier-val" data-i18n="modal.designation_value">Analista en Computación — Graduado Universitario</p>
+                    </div>
+
+                    <div class="dossier-block">
+                        <span class="dossier-label" data-i18n="modal.specialization_label">ESPECIALIZACIÓN TÉCNICA</span>
+                        <p class="dossier-val" data-i18n="modal.specialization_value">
+                            Ingeniería de sistemas backend, APIs escalables de alto rendimiento, arquitectura de datos relacionales (PostgreSQL / SQLite / MySQL) e integración de redes neuronales convolucionales en entornos productivos.
+                        </p>
+                        <p class="dossier-code" data-i18n="modal.core_technologies">
+                            TECNOLOGÍAS PRINCIPALES: Java, Python, Docker, PyTorch, SQL, APIs REST
+                        </p>
+                    </div>
+
+                    <div class="dossier-block full-width">
+                        <span class="dossier-label" data-i18n="modal.channels_label">CANALES DIRECTOS DE COMUNICACIÓN</span>
+                        <div class="dossier-channels">
+                            <a class="modal-channel-card" href="mailto:lautaro_budin@hotmail.com">
+                                <span class="channel-type">DIRECT MAIL</span>
+                                <span class="channel-address">lautaro_budin@hotmail.com</span>
+                            </a>
+                            <a class="modal-channel-card" href="https://github.com/LautaroBudin" target="_blank" rel="noopener noreferrer">
+                                <span class="channel-type">VERSION CONTROL</span>
+                                <span class="channel-address">github.com/LautaroBudin</span>
+                            </a>
+                            <a class="modal-channel-card" href="https://www.linkedin.com/in/lautaro-budin-43066a194/" target="_blank" rel="noopener noreferrer">
+                                <span class="channel-type">NETWORK MATRIX</span>
+                                <span class="channel-address">linkedin.com/in/lautaro-budin</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,56 +1,53 @@
 {
-    "header": {
-        "role": "Computer Analysis Student | Backend & ML"
-    },
-    "presentation": {
-        "greeting": "Hi! I'm Lautaro Budin",
-        "role": "Advanced Computer Analysis student with experience in backend development and machine learning."
-    },
-    "about": {
-        "title": "About me",
-        "text": "Backend developer focused on building robust systems and scalable APIs using Java and Python. I work with relational databases and integrate machine learning models into production-ready applications."
-    },
-    "projects": {
-        "title": "Projects",
-        "items": [
-            {
-                "title": "Galaxy Classifier with Machine Learning",
-                "description": "Galaxy classifier using a CNN to categorize galaxies based on the Hubble sequence.",
-                "icons": [
-                    "python",
-                    "numpy",
-                    "flask",
-                    "react",
-                    "docker"
-                ],
-                "github": "https://github.com/Proyecto-2025/Machine_Learning_Galaxyes_Classifier_Project"
-            },
-            {
-                "title": "Bull Wallet",
-                "description": "Virtual wallet with authentication, balance loading via QR, and transfers.",
-                "icons": [
-                    "ruby",
-                    "sqlite",
-                    "docker"
-                ],
-                "github": "https://github.com/Leonidas314/Proyecto_Virtual_Wallet_AyDS"
-            },
-            {
-                "title": "Budasswords",
-                "description": "A production-quality, secure, and offline-first cross-platform personal password manager for Android and Windows.",
-                "icons": [
-                    "flutter",
-                    "supabase",
-                    "sqlite"
-                ],
-                "github": "https://github.com/budanga/budasswords"
-            }
-        ]
-    },
-    "contact": {
-        "title": "Contact"
-    },
-    "footer": {
-        "text": "© 2026 Lautaro Budin"
-    }
+  "header": {
+    "name": "LAUTARO BUDIN",
+    "role": "COMPUTER ANALYST — BACKEND & ML"
+  },
+  "nav": {
+    "lang": "[ES / EN]",
+    "about": "ABOUT ME"
+  },
+  "projects": {
+    "status_live": "LIVE_SYS",
+    "status_offline": "OFFLINE_FIRST",
+    "status_tx": "TRANSACTION_ENGINE",
+    "dispatch": "DISPATCH SOURCE",
+    "items": [
+      {
+        "taxonomy": "CNN MORPHOLOGICAL TAXONOMY | APERTURE_01",
+        "title": "GALAXY CLASSIFIER",
+        "description": "Computer vision system implementing a Convolutional Neural Network (CNN) to categorize astronomical galaxy imagery based on the Hubble sequence morphological scheme, featuring a Flask backend and interactive visualization."
+      },
+      {
+        "taxonomy": "OFFLINE-FIRST VAULT ARCHITECTURE | APERTURE_02",
+        "title": "BUDASSWORDS",
+        "description": "Cross-platform personal password manager for Android and Windows built with an offline-first architecture, high-grade local SQLite encryption, and optional Supabase synchronization."
+      },
+      {
+        "taxonomy": "QR LEDGER TRANSACTION MECHANISM | APERTURE_03",
+        "title": "BULL WALLET",
+        "description": "Virtual wallet application with user authentication, transactional ledger transfer engine, and QR code balance loading, engineered in Ruby with SQLite3 and Docker containerization."
+      }
+    ]
+  },
+  "operator": {
+    "title": "LAUTARO BUDIN",
+    "role_summary": "Computer Analyst | Backend APIs in Java & Python, Relational DBs",
+    "bio": "Backend developer focused on building robust systems and scalable APIs using Java and Python. I work with relational databases and integrate machine learning models into production-ready applications."
+  },
+  "modal": {
+    "title": "DOSSIER // ABOUT ME",
+    "designation_label": "DESIGNATION",
+    "designation_value": "Computer Analyst — Degree Graduate",
+    "specialization_label": "TECHNICAL SPECIALIZATION",
+    "specialization_value": "Backend systems engineering, high-throughput scalable APIs, relational data architecture (PostgreSQL / SQLite / MySQL), and convolutional neural network integration in production environments.",
+    "core_technologies": "CORE TECHNOLOGIES: Java, Python, Docker, PyTorch, SQL, REST APIs",
+    "channels_label": "DIRECT COMMUNICATION CHANNELS",
+    "close": "CLOSE [ESC]"
+  },
+  "footer": {
+    "email": "EMAIL",
+    "github": "GITHUB",
+    "linkedin": "LINKEDIN"
+  }
 }
