@@ -8,23 +8,23 @@
     "about": "SOBRE MÍ"
   },
   "projects": {
-    "status_live": "SISTEMA_ACTIVO",
-    "status_offline": "OFFLINE_FIRST",
-    "status_tx": "MOTOR_TRANSACCIONAL",
+    "status_galaxy": "CNN_MORPH",
+    "status_vault": "VAULT_LOCK",
+    "status_wallet": "QR_LEDGER",
     "dispatch": "VER CÓDIGO FUENTE",
     "items": [
       {
-        "taxonomy": "TAXONOMÍA MORFOLÓGICA CNN | APERTURA_01",
+        "taxonomy": "TAXONOMÍA MORFOLÓGICA CNN",
         "title": "CLASIFICADOR DE GALAXIAS",
         "description": "Sistema de visión por computadora que implementa una Red Neuronal Convolucional (CNN) para clasificar imágenes astronómicas de galaxias según el esquema morfológico de la secuencia de Hubble, integrando backend en Flask y visualización interactiva."
       },
       {
-        "taxonomy": "ARQUITECTURA DE BÓVEDA OFFLINE-FIRST | APERTURA_02",
+        "taxonomy": "ARQUITECTURA DE BÓVEDA OFFLINE-FIRST",
         "title": "BUDASSWORDS",
         "description": "Bóveda de gestión de contraseñas multiplataforma para Android y Windows con arquitectura offline-first, cifrado local de alta seguridad en SQLite y sincronización opcional con Supabase."
       },
       {
-        "taxonomy": "MECANISMO DE TRANSACCIÓN DE LIBRO MAYOR QR | APERTURA_03",
+        "taxonomy": "SISTEMA TRANSACCIONAL Y BILLETERA QR",
         "title": "BULL WALLET",
         "description": "Aplicación de billetera virtual con autenticación de usuarios, motor transaccional de transferencias y carga de saldo mediante lectura de códigos QR, desarrollada en Ruby con SQLite3 y contenedores Docker."
       }

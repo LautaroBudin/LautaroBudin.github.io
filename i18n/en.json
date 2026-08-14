@@ -8,23 +8,23 @@
     "about": "ABOUT ME"
   },
   "projects": {
-    "status_live": "LIVE_SYS",
-    "status_offline": "OFFLINE_FIRST",
-    "status_tx": "TRANSACTION_ENGINE",
+    "status_galaxy": "CNN_MORPH",
+    "status_vault": "VAULT_LOCK",
+    "status_wallet": "QR_LEDGER",
     "dispatch": "DISPATCH SOURCE",
     "items": [
       {
-        "taxonomy": "CNN MORPHOLOGICAL TAXONOMY | APERTURE_01",
+        "taxonomy": "CNN MORPHOLOGICAL TAXONOMY",
         "title": "GALAXY CLASSIFIER",
         "description": "Computer vision system implementing a Convolutional Neural Network (CNN) to categorize astronomical galaxy imagery based on the Hubble sequence morphological scheme, featuring a Flask backend and interactive visualization."
       },
       {
-        "taxonomy": "OFFLINE-FIRST VAULT ARCHITECTURE | APERTURE_02",
+        "taxonomy": "OFFLINE-FIRST VAULT ARCHITECTURE",
         "title": "BUDASSWORDS",
         "description": "Cross-platform personal password manager for Android and Windows built with an offline-first architecture, high-grade local SQLite encryption, and optional Supabase synchronization."
       },
       {
-        "taxonomy": "QR LEDGER TRANSACTION MECHANISM | APERTURE_03",
+        "taxonomy": "TRANSACTIONAL ENGINE & QR WALLET",
         "title": "BULL WALLET",
         "description": "Virtual wallet application with user authentication, transactional ledger transfer engine, and QR code balance loading, engineered in Ruby with SQLite3 and Docker containerization."
       }
